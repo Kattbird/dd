@@ -8,13 +8,20 @@ CREATE TABLE items (
     item_id INTEGER PRIMARY KEY AUTOINCREMENT,
     item_name TEXT NOT NULL,
     item_type TEXT NOT NULL,
-    content TEXT NOT NULL
+    item_content TEXT NOT NULL
 );
 
-CREATE TABLE comment (
+CREATE TABLE comments (
     comment_id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_name TEXT NOT NULL,
-    content TEXT NOT NULL
+    comment_content TEXT NOT NULL
 
 );
 
+CREATE TABLE posts (
+    post_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER NOT NULL,
+    user_name TEXT NOT NULL,
+    post_content TEXT NO NULL
+
+)
