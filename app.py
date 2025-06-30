@@ -17,7 +17,7 @@ def main():
 def login():
     return render_template("login.html")
 
-@app.route("/login_check")
+@app.route("/login_check", methods=["POST", "GET"])
 def login_check():
     conn = sqlite3.connect("database.db")
     cur = conn.cursor()
@@ -50,7 +50,7 @@ def login_check():
 def signup():
     return render_template("signup.html")
 
-@app.route("/signup_check")
+@app.route("/signup_check", methods=["POST", "GET"])
 def signup_check():
     
     conn = sqlite3.connect("database.db")
@@ -71,7 +71,7 @@ def signup_check():
     if not username_found:
         cur.execute(f"INSERT INTO user (username, password) VALUES ('{username}', '{password}')")
         conn.commit()
-        
+
         session["username"] = username
         session["logged_in"] = True
 
