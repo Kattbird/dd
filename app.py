@@ -69,7 +69,7 @@ def signup_check():
             break
     
     if not username_found:
-        cur.execute(f"INSERT INTO user (username, password) VALUES ('{username}', '{password}')")
+        cur.execute(f"INSERT INTO users (user_name, user_password) VALUES ('{username}', '{password}')")
         conn.commit()
 
         session["username"] = username
