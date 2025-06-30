@@ -6,7 +6,7 @@ from flask import Flask, url_for, redirect, render_template, request, session
 load_dotenv("key.env")
 
 app = Flask(__name__)
-app.secret_key = os.getenv("key")
+app.secret_key = os.getenv("secret")
 
 @app.route("/")
 @app.route("/main")
