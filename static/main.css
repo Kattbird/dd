@@ -5,13 +5,19 @@
 }
 
 .bodylogin {
-    background-image: url("dragon_sin_logo.jpg");
+    background-image: url("escanorandmael.png");
     background-repeat: no-repeat;
-    background-size: auto;
+    background-size: cover;
 }
 
 .races_button {
     background-image: url("racesbutton.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.signupbody {
+    background-image: url("signupbackground.png");
     background-repeat: no-repeat;
     background-size: cover;
 }
