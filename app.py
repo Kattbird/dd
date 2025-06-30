@@ -11,7 +11,8 @@ app.secret_key = os.getenv("key")
 @app.route("/")
 @app.route("/main")
 def main():
-    return render_template("main.html", username=session["username"], logged_in=session["logged_in"])
+    print(session["username"])
+    return render_template("main.html", username="daniel", logged_in=session["logged_in"])
 
 @app.route("/login")
 def login():
