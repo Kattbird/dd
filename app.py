@@ -19,7 +19,32 @@ def login():
 
 @app.route("/login_check")
 def login_check():
-    return None
+    conn = sqlite3.connect("database.db")
+    cur = conn.cursor()
+
+    username = request.form.get("user")
+    password = request.form.get("pass")
+
+    users = cur.execute("SELECT user_name, user_password FROM users")
+
+    username_found = False
+    password_found = False
+
+    for i in users:
+        if i[0] == username:
+            username_found = True
+            if i[1] == password:
+                password_found = True
+            break
+    
+    if (username_found and password_found):
+
+        session["username"] = username
+        session["logged_in"] = True
+
+        return redirect(url_for("main"))
+    else:
+        return redirect(url_for("login"))
 
 @app.route("/signup")
 def signup():
