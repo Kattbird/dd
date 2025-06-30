@@ -81,8 +81,9 @@ def signup_check():
 
 @app.route("/logout")
 def logout():
-    session.pop("username")
-    session.pop("logged_in")
+    if "logged_in" in session:
+        session.pop("username")
+        session.pop("logged_in")
     return redirect(url_for("main"))
 
 if __name__ == "__main__":
