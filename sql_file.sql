@@ -29,5 +29,5 @@ CREATE TABLE item_comments (
     item_comment_id INTEGER PRIMARY KEY AUTOINCREMENT,
     item_comment_content TEXT NOT NULL
     comment_id TEXT NOT NULL,
-    user_name TEXT NOT NULL,
+    user_name TEXT NOT NULL
 );
