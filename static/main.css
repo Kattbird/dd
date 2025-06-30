@@ -1,11 +1,17 @@
 .mainbody {
-    background-image: url("holy_war_x_land.png");
+    background-image: url("hwx_image.png");
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .bodylogin {
-    background-image: url("hwx_image.png");
+    background-image: url("dragon_sin_logo.jpg");
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
+.races_button {
+    background-image: url("racesbutton.png");
     background-repeat: no-repeat;
     background-size: cover;
 }
