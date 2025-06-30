@@ -17,11 +17,17 @@ def main():
 def login():
     return render_template("login.html")
 
+@app.route("/login_check")
+def login_check():
+    return None
+
 @app.route("/signup")
 def signup():
     return render_template("signup.html")
 
+@app.route("/signup_check")
+def signup_check():
+    return None
+
 if __name__ == "__main__":
     app.run()
-
-#Test - This is fine now
