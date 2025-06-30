@@ -52,7 +52,32 @@ def signup():
 
 @app.route("/signup_check")
 def signup_check():
-    return None
+    
+    conn = sqlite3.connect("database.db")
+    cur = conn.cursor()
+
+    username = request.form.get("user")
+    password = request.form.get("pass")
+
+    users = cur.execute("SELECT user_name FROM users")
+
+    username_found = False
+
+    for i in users:
+        if i[0] == username:
+            username_found = True
+            break
+    
+    if not username_found:
+        cur.execute(f"INSERT INTO user (username, password) VALUES ('{username}', '{password}')")
+        conn.commit()
+        
+        session["username"] = username
+        session["logged_in"] = True
+
+        return redirect(url_for("main"))
+    else:
+        return redirect(url_for("signup"))
 
 if __name__ == "__main__":
     app.run()
