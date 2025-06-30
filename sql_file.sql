@@ -13,21 +13,24 @@ CREATE TABLE items (
 
 CREATE TABLE comments (
     comment_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    user_name TEXT NOT NULL,
-    comment_content TEXT NOT NULL
+    user_id INTEGER NOT NULL,
+    comment_content TEXT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
 
 );
 
 CREATE TABLE posts (
     post_id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id INTEGER NOT NULL,
-    user_name TEXT NOT NULL,
-    post_content TEXT NO NULL
+    post_content TEXT NO NULL,  
+    FOREIGN KEY(user_id) REFERENCES users(user_id)
+
 );
 
 CREATE TABLE item_comments (
     item_comment_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    item_comment_content TEXT NOT NULL
     comment_id TEXT NOT NULL,
-    user_name TEXT NOT NULL
+    user_id INTEGER NOT NULL,
+    FOREIGN KEY(comment_id) REFERENCES comments(comment_id),
+    FOREIGN KEY(user_id) REFERENCES users(user_id)
 );
