@@ -1,30 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <title>Signup page</title>
 </head>
-<body class="bg-yellow-300 flex justify-center items-center h-screen">
-    <div class="bg-red-400 p-5 h-175 rounded-2xl flex-initial size-150">
-        <div class="bg-white p-5 m-5 rounded-2xl">
-            <h1 class="text-center text-4xl font-bold">
-                Sign Up
-            </h1>
-        </div>
-        <div class="bg-white p-15 m-15 flex justify-center static rounded-2xl">
-            <form action="/signup_check" method="POST">
-                <div>
-                    <input type="text", name="user", placeholder="Username" class="opacity-50 border m-5">
-                </div>
-                <div>
-                    <input type="password", name="pass", placeholder="Password" class="opacity-50 border m-5">
-                </div>
-                <div>
-                    <input type="submit" class="p-3 text-center border m-17 bg-red-400 rounded-2xl">
-                </div>
-                
-            </form>
+<body class="signupbody">
+    <div class="flex justify-center items-center h-screen">
+        <div class="bg-black/75 p-5 h-175 rounded-2xl flex-initial size-150 border-1 border-white">
+            <div class="bg-white/75 p-5 m-5 rounded-2xl">
+                <h1 class="text-center text-4xl font-bold">
+                    Sign Up
+                </h1>
+            </div>
+            <div class="bg-white/75 p-15 m-15 flex justify-center static rounded-2xl border-1 border-black">
+                <form action="/signup_check" method="POST">
+                    <div>
+                        <input type="text", name="user", placeholder="Username" class="border p-1 m-5 rounded-2xl">
+                    </div>
+                    <div>
+                        <input type="password", name="pass", placeholder="Password" class=" border p-1 m-5 rounded-2xl">
+                    </div>
+                    <div>
+                        <input type="submit" class="p-5 text-center border m-17 bg-white rounded-2xl font-bold">
+                    </div>
+                    
+                </form>
 
+            </div>
         </div>
     </div>
 </body>

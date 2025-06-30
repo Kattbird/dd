@@ -11,7 +11,10 @@ app.secret_key = os.getenv("key")
 @app.route("/")
 @app.route("/main")
 def main():
-    return render_template("main.html")
+    if "logged_in" in session:
+        return render_template("main.html", username=session["username"], logged_in=session["logged_in"])
+    else:
+        return render_template("main.html")
 
 @app.route("/login")
 def login():
@@ -78,6 +81,13 @@ def signup_check():
         return redirect(url_for("main"))
     else:
         return redirect(url_for("signup"))
+
+@app.route("/logout")
+def logout():
+    if "logged_in" in session:
+        session.pop("username")
+        session.pop("logged_in")
+    return redirect(url_for("main"))
 
 if __name__ == "__main__":
     app.run()

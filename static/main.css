@@ -1,11 +1,23 @@
 .mainbody {
-    background-image: url("holy_war_x_land.png");
+    background-image: url("hwx_image.png");
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .bodylogin {
-    background-image: url("hwx_image.png");
+    background-image: url("escanorandmael.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.races_button {
+    background-image: url("racesbutton.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.signupbody {
+    background-image: url("signupbackground.png");
     background-repeat: no-repeat;
     background-size: cover;
 }
