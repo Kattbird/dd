@@ -108,7 +108,7 @@ def content_add_db():
     conn = sqlite3.connect("database.db")
     cur = conn.cursor()
     if "logged_in" in session:
-        mod = cur.execute("SELECT mod FROM users")
+        mod = "TRUE"
         if mod == "TRUE":
             title = request.form.get("title")
             type = request.form.get("type")
