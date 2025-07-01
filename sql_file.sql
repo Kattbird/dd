@@ -41,4 +41,4 @@ INSERT INTO users(user_name,user_password,mod) VALUES ('Dannyminer','Gribby','TR
 INSERT INTO users(user_name,user_password,mod) VALUES ('SabaEnjoyer','a','TRUE');
 INSERT INTO users(user_name,user_password,mod) VALUES ('KaperDan','HWX','TRUE');
 
-INSERT INTO table_name(item_name,item_type,item_content) VALUES (title,type,content);
+INSERT INTO items(item_name,item_type,item_content) VALUES (title,type,content);
