@@ -31,7 +31,7 @@ def login_check():
     username = request.form.get("user")
     password = request.form.get("pass")
 
-    users = cur.execute("SELECT user_name, user_password FROM users")
+    users = cur.execute("SELECT user_name, user_password FROM users;")
 
     username_found = False
     password_found = False
@@ -65,7 +65,7 @@ def signup_check():
     username = request.form.get("user")
     password = request.form.get("pass")
 
-    users = cur.execute("SELECT user_name FROM users")
+    users = cur.execute("SELECT user_name FROM users;")
 
     username_found = False
 
@@ -75,7 +75,7 @@ def signup_check():
             break
     
     if not username_found:
-        cur.execute(f"INSERT INTO users (user_name, user_password, mod) VALUES ('{username}', '{password}', FALSE)")
+        cur.execute(f"INSERT INTO users (user_name, user_password, mod) VALUES ('{username}', '{password}', FALSE);")
         conn.commit()
 
         session["username"] = username
@@ -97,7 +97,7 @@ def content_add():
     conn = sqlite3.connect("database.db")
     cur = conn.cursor()
     if "logged_in" in session:
-        mod = bool(cur.execute(f"SELECT mod FROM users WHERE user_name='{session["username"]}'").fetchone()[0])
+        mod = bool(cur.execute(f"SELECT mod FROM users WHERE user_name='{session["username"]}';").fetchone()[0])
         if mod:
             return render_template("content_add.html")
         else:
@@ -105,17 +105,20 @@ def content_add():
     else:
         return redirect(url_for("main"))
 
-@app.route("/content_add_db")
+@app.route("/content_add_db", methods=["POST", "GET"])
 def content_add_db():
     conn = sqlite3.connect("database.db")
     cur = conn.cursor()
     if "logged_in" in session:
-        mod = cur.execute(f"SELECT mod FROM users WHERE user_name='{session["username"]}'").fetchone()
+        
+        mod = cur.execute(f"SELECT mod FROM users WHERE user_name='{session["username"]}';").fetchone()
         if mod:
             title = request.form.get("title")
             type = request.form.get("type")
             content = request.form.get("content")
-            cur.execute(f"INSERT INTO items(item_name,item_type,item_content) VALUES ({title},{type},{content});")
+            cur.execute(f"INSERT INTO items (item_name, item_type, item_content) VALUES ('{title}', '{type}', '{content}');")
+            conn.commit()
+            return redirect(url_for("main"))
 
 if __name__ == "__main__":
     app.run()
