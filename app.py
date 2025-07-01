@@ -94,7 +94,7 @@ def content_add():
     conn = sqlite3.connect("database.db")
     cur = conn.cursor()
     if "logged_in" in session:
-        mod = cur.execute("SELECT mod FROM users")
+        mod = "TRUE"
         print(f"{mod}")
         if mod == "TRUE":
             return render_template("content_add.html")
