@@ -40,3 +40,5 @@ CREATE TABLE item_comments (
 INSERT INTO users(user_name,user_password,mod) VALUES ('Dannyminer','Gribby','TRUE');
 INSERT INTO users(user_name,user_password,mod) VALUES ('SabaEnjoyer','a','TRUE');
 INSERT INTO users(user_name,user_password,mod) VALUES ('KaperDan','HWX','TRUE');
+
+UPDATE products SET price = price * 0.95 WHERE  product_cat = ‘Food’;
