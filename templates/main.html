@@ -20,10 +20,13 @@
                     Log Out
                 </a>
                 <a class="border-1 border-black p-3 m-3 rounded-2xl bg-white">Logged in as: {{username}}</a>
-            {% endif %}
+            {% if mod %}
             <a href="/content_add" class="border-1 border-black p-3 m-3 rounded-2xl bg-white">
                 Content add
             </a>
+            {% endif %}
+            {% endif %}
+            
         </div>
         <div class="flex justify-center items-center h-screen">
             <div class="bg-black/75 p-5 h-175 flex-initial size-250 border-1 border-white rounded-2xl">
