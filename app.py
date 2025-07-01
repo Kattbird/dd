@@ -12,7 +12,10 @@ app.secret_key = os.getenv("key")
 @app.route("/main")
 def main():
     if "logged_in" in session:
-        return render_template("main.html", username=session["username"], logged_in=session["logged_in"], mod=True)
+        conn = sqlite3.connect("database.db")
+        cur = conn.cursor()
+        mod = cur.execute(f"SELECT mod FROM users WHERE user_name='{session["username"]}'")
+        return render_template("main.html", username=session["username"], logged_in=session["logged_in"], mod=mod)
     else:
         return render_template("main.html")
 
