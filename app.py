@@ -12,7 +12,7 @@ app.secret_key = os.getenv("key")
 @app.route("/main")
 def main():
     if "logged_in" in session:
-        return render_template("main.html", username=session["username"], logged_in=session["logged_in"])
+        return render_template("main.html", username=session["username"], logged_in=session["logged_in"], mod=True)
     else:
         return render_template("main.html")
 
