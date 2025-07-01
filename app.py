@@ -95,7 +95,6 @@ def content_add():
     cur = conn.cursor()
     if "logged_in" in session:
         mod = "TRUE"
-        print(f"{mod}")
         if mod == "TRUE":
             return render_template("content_add.html")
         else:
