@@ -110,7 +110,7 @@ def content_add_db():
         mod = cur.execute("SELECT mod FROM users")
         if mod == "TRUE":
             title = request.form.get("title")
-            type = request.form.get("")
+            type = request.form.get("type")
             content = request.form.get("content")
 
 
