@@ -116,3 +116,5 @@ def content_add_db():
 
 if __name__ == "__main__":
     app.run()
+
+    INSERT INTO table_name(item_name,item_type,item_content) VALUES (title,type,content);
