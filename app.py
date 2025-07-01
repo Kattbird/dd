@@ -89,7 +89,7 @@ def logout():
         session.pop("logged_in")
     return redirect(url_for("main"))
 
-@app.route("/contect_add")
+@app.route("/content_add")
 def content_add():
     conn = sqlite3.connect("database.db")
     cur = conn.cursor()
@@ -101,6 +101,17 @@ def content_add():
             return redirect(url_for("main"))
     else:
         return redirect(url_for("main"))
+
+@app.route("/content_add_db")
+def content_add_db():
+    conn = sqlite3.connect("database.db")
+    cur = conn.cursor()
+    if "logged_in" in session:
+        mod = cur.execute("SELECT mod FROM users")
+        if mod == "TRUE":
+            title = request.form.get("title")
+            type = request.form.get("type")
+            content = request.form.get("content")
 
 
 if __name__ == "__main__":
