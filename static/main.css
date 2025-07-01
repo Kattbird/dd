@@ -21,3 +21,10 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.bodycontentadd {
+    background-image: url("content_add_hawk.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
