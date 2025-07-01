@@ -1,7 +1,8 @@
 CREATE TABLE users (
     user_id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_name TEXT NOT NULL,
-    user_password TEXT NOT NULL
+    user_password TEXT NOT NULL,
+    mod TEXT NOT NULL
 );
 
 CREATE TABLE items (
