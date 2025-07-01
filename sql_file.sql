@@ -41,4 +41,5 @@ INSERT INTO users(user_name,user_password,mod) VALUES ('Dannyminer','Gribby','TR
 INSERT INTO users(user_name,user_password,mod) VALUES ('SabaEnjoyer','a','TRUE');
 INSERT INTO users(user_name,user_password,mod) VALUES ('KaperDan','HWX','TRUE');
 
-UPDATE products SET price = price * 0.95 WHERE  product_cat = ‘Food’;
+
+SELECT * FROM users WHERE mod='TRUE';
