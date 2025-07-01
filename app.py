@@ -96,8 +96,11 @@ def content_add():
     if "logged_in" in session:
         mod = cur.execute("SELECT mod FROM users")
         if mod == "TRUE":
-            return render_template()
-
+            return render_template("content_add.html")
+        else:
+            return redirect(url_for("main"))
+    else:
+        return redirect(url_for("main"))
 
 
 if __name__ == "__main__":
