@@ -12,7 +12,10 @@ app.secret_key = os.getenv("key")
 @app.route("/main")
 def main():
     if "logged_in" in session:
-        return render_template("main.html", username=session["username"], logged_in=session["logged_in"])
+        conn = sqlite3.connect("database.db")
+        cur = conn.cursor()
+        mod = cur.execute(f"SELECT mod FROM users WHERE user_name='{session["username"]}'")
+        return render_template("main.html", username=session["username"], logged_in=session["logged_in"], mod=mod)
     else:
         return render_template("main.html")
 
@@ -94,8 +97,8 @@ def content_add():
     conn = sqlite3.connect("database.db")
     cur = conn.cursor()
     if "logged_in" in session:
-        mod = "TRUE"
-        if mod == "TRUE":
+        mod = bool(cur.execute(f"SELECT mod FROM users WHERE user_name='{session["username"]}'").fetchone()[0])
+        if mod:
             return render_template("content_add.html")
         else:
             return redirect(url_for("main"))
@@ -107,12 +110,12 @@ def content_add_db():
     conn = sqlite3.connect("database.db")
     cur = conn.cursor()
     if "logged_in" in session:
-        mod = "TRUE"
-        if mod == "TRUE":
+        mod = cur.execute(f"SELECT mod FROM users WHERE user_name='{session["username"]}'").fetchone()
+        if mod:
             title = request.form.get("title")
             type = request.form.get("type")
             content = request.form.get("content")
-
+            cur.execute(f"INSERT INTO items(item_name,item_type,item_content) VALUES ({title},{type},{content});")
 
 if __name__ == "__main__":
     app.run()
