@@ -5,13 +5,36 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <title>Main Page</title>
 </head>
-<body class="mainbody flex justify-center items-center h-screen">
-    <div class="mainbox bg-black p-5 h-175 flex-initial size-150 opacity-60 border-width: 1px rounded-2x1">
-        <div class="lablebox bg-white p-5 m-5 rounded-2x1 opacity-100">
-                <h1 class="text-center text-4x1 font-bold opacity-100">
-                    HOLY WAR X
-                </h1>
+<body>
+    <div class="mainbody">
+        <div class="bg-black/75 border-1 border-white font-bold p-5 rounded-2xl">
+            {%if not logged_in%}
+                <a href="/login" class="border-1 border-black p-3 m-3 rounded-2xl bg-white">
+                    Login
+                </a>   
+                <a href="/signup" class="border-1 border-black p-3 m-3 rounded-2xl bg-white">
+                    Sign Up
+                </a> 
+            {% else %}
+                <a href="/logout" class="border-1 border-black p-3 m-3 rounded-2xl bg-white">
+                    Log Out
+                </a>
+                <a class="border-1 border-black p-3 m-3 rounded-2xl bg-white">Logged in as: {{username}}</a>
+            {% endif %}
+            <a href="/content_add" class="border-1 border-black p-3 m-3 rounded-2xl bg-white">
+                Content add
+            </a>
+        </div>
+        <div class="flex justify-center items-center h-screen">
+            <div class="bg-black/75 p-5 h-175 flex-initial size-250 border-1 border-white rounded-2xl">
+                <div class="lablebox bg-white p-5 m-5 rounded-2xl border-1 border-black">
+                        <h1 class="text-center text-4x1 font-bold ">
+                            HOLY WAR X
+                        </h1>
+                </div>   
+            </div>
         </div>
     </div>
+
 </body>
 </html>
