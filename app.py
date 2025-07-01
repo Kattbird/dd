@@ -72,7 +72,7 @@ def signup_check():
             break
     
     if not username_found:
-        cur.execute(f"INSERT INTO users (user_name, user_password) VALUES ('{username}', '{password}')")
+        cur.execute(f"INSERT INTO users (user_name, user_password, mod) VALUES ('{username}', '{password}', FALSE)")
         conn.commit()
 
         session["username"] = username
@@ -88,6 +88,17 @@ def logout():
         session.pop("username")
         session.pop("logged_in")
     return redirect(url_for("main"))
+
+@app.route("/contect_add")
+def content_add():
+    conn = sqlite3.connect("database.db")
+    cur = conn.cursor()
+    if "logged_in" in session:
+        mod = cur.execute("SELECT mod FROM users")
+        if mod == "TRUE":
+            return render_template()
+
+
 
 if __name__ == "__main__":
     app.run()
