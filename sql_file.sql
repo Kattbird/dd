@@ -35,3 +35,8 @@ CREATE TABLE item_comments (
     FOREIGN KEY(comment_id) REFERENCES comments(comment_id),
     FOREIGN KEY(user_id) REFERENCES users(user_id)
 );
+
+
+INSERT INTO users(user_name,user_password,mod) VALUES ('Dannyminer','Gribby','TRUE');
+INSERT INTO users(user_name,user_password,mod) VALUES ('SabaEnjoyer','a','TRUE');
+INSERT INTO users(user_name,user_password,mod) VALUES ('KaperDan','HWX','TRUE');
