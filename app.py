@@ -15,11 +15,12 @@ def main():
         conn = sqlite3.connect("database.db")
         cur = conn.cursor()
         mod = cur.execute(f"SELECT mod FROM users WHERE user_name='{session["username"]}'")
+
         item_types = cur.execute("SELECT item_type FROM items;").fetchall()
         return render_template("main.html", username=session["username"], logged_in=session["logged_in"], mod=mod, types=item_types)
     else:
-        return render_template("main.html", types=[('magic'), ('fighting styles'),])
-
+        return render_template("main.html", types=item_types)
+    
 @app.route("/login")
 def login():
     return render_template("login.html")
