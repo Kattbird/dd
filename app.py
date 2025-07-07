@@ -121,24 +121,9 @@ def content_add_db():
             conn.commit()
             return redirect(url_for("main"))
     
-@app.route("/fighting_styles")
+@app.route("/types/<type>")
 def fighting_style():
-    return render_template("fighting_styles.html")
-
-
-@app.route("/magic")
-def magic():
-    return render_template("magic.html")
-
-
-@app.route("/races")
-def races():
-    return render_template("races.html")
-
-
-@app.route("/skills")
-def skills():
-    return render_template("skills.html")
+    return render_template("content.html")
 
 if __name__ == "__main__":
     app.run()
