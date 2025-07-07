@@ -20,11 +20,7 @@ def main():
         return render_template("main.html", username=session["username"], logged_in=session["logged_in"], mod=mod, types=item_types)
     else:
         return render_template("main.html", types=item_types)
-<<<<<<< HEAD
     
-=======
-
->>>>>>> 9689d2271abaaaa4344c3481830156f9bcb4722b
 @app.route("/login")
 def login():
     return render_template("login.html")
@@ -126,26 +122,7 @@ def content_add_db():
             conn.commit()
             return redirect(url_for("main"))
     
-<<<<<<< HEAD
-@app.route("/fighting_styles")
-def fighting_style():
-    return render_template("fighting_styles.html")
 
-
-@app.route("/magic")
-def magic():
-    return render_template("magic.html")
-
-
-@app.route("/races")
-def races():
-    return render_template("races.html")
-
-
-@app.route("/skills")
-def skills():
-    return render_template("skills.html")
-=======
 @app.route("/types/<type_chosen>")
 def content(type_chosen):
     conn = sqlite3.connect("database.db")
@@ -154,7 +131,6 @@ def content(type_chosen):
     content = cur.execute(f"SELECT item_content FROM items WHERE item_type={type_chosen}")
     print()
     return render_template("content.html", type=type_chosen, title=title, content=content)
->>>>>>> 46dad1283fb4d745cff63736ec331269a149cf11
 
 if __name__ == "__main__":
     app.run()
