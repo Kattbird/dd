@@ -80,7 +80,4 @@ INSERT INTO items(item_name,item_type,item_content) VALUES ('Cooking','Subskills
 INSERT INTO items(item_name,item_type,item_content) VALUES ('Stealth','Subskills','A skill used to level up and progress the games story');
 INSERT INTO items(item_name,item_type,item_content) VALUES ('Lockpicking','Subskills','A skill used to level up and progress the games story');
 INSERT INTO items(item_name,item_type,item_content) VALUES ('Theft','Subskills','A skill used to level up and progress the games story');
-INSERT INTO items(item_name,item_type,item_content) VALUES ('Smithing','Subskills','A skill used to level up and progress the games story');
-
-
--- dadad
+INSERT INTO items(item_name,item_type,item_content) VALUES ('Smithing','Subskills','A skill used to level up and progress the games story');a
