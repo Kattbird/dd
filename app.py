@@ -120,23 +120,23 @@ def content_add_db():
             conn.commit()
             return redirect(url_for("main"))
     
-@app.route("/fightning_styles")
+@app.route("/fighting_styles")
 def fighting_style():
-    return render_template("fightning_styles.html")
+    return render_template("fighting_styles.html")
 
 
 @app.route("/magic")
-def fighting_style():
+def magic():
     return render_template("magic.html")
 
 
 @app.route("/races")
-def fighting_style():
+def races():
     return render_template("races.html")
 
 
 @app.route("/skills")
-def fighting_style():
+def skills():
     return render_template("skills.html")
 
 if __name__ == "__main__":
