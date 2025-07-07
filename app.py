@@ -15,18 +15,13 @@ def main():
     cur = conn.cursor()
     item_types = cur.execute("SELECT item_type FROM items;").fetchall()
     if "logged_in" in session:
-        mod = bool(cur.execute("SELECT mod FROM users WHERE user_name='?}'", (session["username"],)))
+        mod = bool(cur.execute("SELECT mod FROM users WHERE user_name=?", (session["username"],)))
         return render_template("main.html", username=session["username"], logged_in=session["logged_in"], mod=mod, types=item_types)
     else:
         return render_template("main.html", types=item_types)
-
-
-@app.route("/login")
-def login():
-    return render_template("login.html")
-
+    
 @app.route("/login", methods=["POST", "GET"])
-def login_check():
+def login():
     if request.method == "POST":
         conn = sqlite3.connect("database.db")
         cur = conn.cursor()
@@ -37,22 +32,27 @@ def login_check():
         users = cur.execute("SELECT user_password FROM users WHERE user_name = ?;", (username,)).fetchall()
 
         username_found = False
+        password_found = False
 
-        if not len(users) > 0:
-            username_found = False
+        if len(users) > 0:
+            username_found = True
+            if users[0][0] == password:
+                password_found = True
         
-        if (username_found):
+        if (username_found and password_found):
 
             session["username"] = username
             session["logged_in"] = True
 
             return redirect(url_for("main"))
+        else:
+            return render_template("login.html")
     else:
         return render_template("login.html")
 
 
 @app.route("/signup", methods=["POST", "GET"])
-def signup_check():
+def signup():
     if request.method == "POST":
         conn = sqlite3.connect("database.db")
         cur = conn.cursor()
@@ -60,19 +60,23 @@ def signup_check():
         username = request.form.get("user")
         password = request.form.get("pass")
 
-        users = cur.execute("SELECT user_name FROM users WHERE user_name = ?;", (username,)).fetchone()[0]
+        users = cur.execute("SELECT user_name FROM users WHERE user_name = ?;", (username,)).fetchone()
+        print(users )
 
-        if len(users) > 0:
+        username_found = False
+        if users and len(users) > 0:
             username_found = True
         
-        if username_found:
-            cur.execute("INSERT INTO users (user_name, user_password, mod) VALUES ('?', '?', FALSE);", (username, password,))
+        if not username_found:
+            cur.execute("INSERT INTO users (user_name, user_password, mod) VALUES (?, ?, ?);", (username, password,False))
             conn.commit()
 
             session["username"] = username
             session["logged_in"] = True
 
             return redirect(url_for("main"))
+        else:
+            return render_template("signup.html")
     else:
         return render_template("signup.html")
 
