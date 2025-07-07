@@ -11,11 +11,11 @@ app.secret_key = os.getenv("key")
 @app.route("/")
 @app.route("/main")
 def main():
+    conn = sqlite3.connect("database.db")
+    cur = conn.cursor()
+    item_types = cur.execute("SELECT item_type FROM items;").fetchall()
     if "logged_in" in session:
-        conn = sqlite3.connect("database.db")
-        cur = conn.cursor()
         mod = cur.execute(f"SELECT mod FROM users WHERE user_name='{session["username"]}'")
-        item_types = cur.execute("SELECT item_type FROM items;").fetchall()
         return render_template("main.html", username=session["username"], logged_in=session["logged_in"], mod=mod, types=item_types)
     else:
         return render_template("main.html", types=item_types)
@@ -125,8 +125,8 @@ def content_add_db():
 def content(type_chosen):
     conn = sqlite3.connect("database.db")
     cur = conn.cursor()
-    title = cur.execute(f"SELECT item_name FROM items WHERE item_type={type_chosen}")
-    content = cur.execute(f"SELECT item_content FROM items WHERE item_type={type_chosen}")
+    title = cur.execute(f"SELECT item_name FROM items WHERE item_type='{type_chosen}'")
+    content = cur.execute(f"SELECT item_content FROM items WHERE item_type='{type_chosen}'")
     print()
     return render_template("content.html", type=type_chosen, title=title, content=content)
 
