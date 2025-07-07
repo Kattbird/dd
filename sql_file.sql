@@ -42,3 +42,7 @@ INSERT INTO users(user_name,user_password,mod) VALUES ('SabaEnjoyer','a','TRUE')
 INSERT INTO users(user_name,user_password,mod) VALUES ('KaperDan','HWX','TRUE');
 
 INSERT INTO items(item_name,item_type,item_content) VALUES (title,type,content);
+
+SELECT item_name,item_content FROM items WHERE item_type={};
+
+SELECT item_type FROM items;
