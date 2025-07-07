@@ -6,28 +6,32 @@
     <title>Content Add</title>
 </head>
 <body>
-    <div class="bodylogin flex justify-center items-center h-screen">
-        <div class="bg-black/75 p-5 h-175 rounded-2xl flex-initial size-150 border-1 border-white">
-            <div class="bg-white/75 p-5 m-5 rounded-2xl">
-                <h1 class="text-center text-4xl font-bold">
-                    Content Add
-                </h1>
-            </div>
-            <div class="bg-white/75 p-15 m-15 flex justify-center rounded-2xl">
-                <form action="/content_add_db" method="POST">
-                    <div>
-                        <input type="text", name="title", placeholder="Title" class="border m-5 p-1 rounded-2xl">
-                    </div>
-                        <input type="text", name="type", placeholder="Type" class="border m-5 p-1 rounded-2xl">
-                    <div>
-                    </div>
-                    <div>
-                        <input type="text", name="content", placeholder="Content" class="border m-5 p-1 rounded-2xl size=64">
-                    </div>
-                    <div>
-                        <input type="submit" class="p-5 text-center border m-17 bg-white rounded-2xl font-bold">
-                    </div>
-                </form>
+    <div class="bodycontentadd">
+        <div class="flex justify-center items-center h-screen">
+            <div class="bg-black/75 p-5 h-175 rounded-2xl flex-initial size-150 border-1 border-white">
+                <div class="bg-white/75 p-5 m-5 rounded-2xl">
+                    <h1 class="text-center text-4xl font-bold">
+                        Content Add
+                    </h1>
+                </div>
+                <div class="bg-white/75 p-15 m-15 flex justify-center rounded-2xl h-120">
+                    <form action="/content_add_db" method="POST">
+                        <div>
+                            <input type="text", name="title", placeholder="Title" class="border m-5 p-1 rounded-2xl">
+                        </div>
+                            <input type="text", name="type", placeholder="Type" class="border m-5 p-1 rounded-2xl">
+                        <div>
+                        </div>
+                        <div>
+                            <input type="text", name="content", placeholder="Content" class="border m-5 p-1 rounded-2xl size=150">
+                        </div>
+                        <div>
+                            <input type="submit" class="p-5 text-center border m-17 bg-white rounded-2xl font-bold">
+                        </div>
+                        
+                    </form>
+
+                </div>
             </div>
         </div>
     </div>

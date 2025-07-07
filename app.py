@@ -140,4 +140,4 @@ def fighting_style():
     return render_template("skills.html")
 
 if __name__ == "__main__":
-    app.run()   
+    app.run()
