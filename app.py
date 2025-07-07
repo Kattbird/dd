@@ -15,16 +15,11 @@ def main():
     cur = conn.cursor()
     item_types = cur.execute("SELECT item_type FROM items;").fetchall()
     if "logged_in" in session:
-        mod = bool(cur.execute("SELECT mod FROM users WHERE user_name='?}'", (session["username"],)))
+        mod = bool(cur.execute("SELECT mod FROM users WHERE user_name=?", (session["username"],)))
         return render_template("main.html", username=session["username"], logged_in=session["logged_in"], mod=mod, types=item_types)
     else:
         return render_template("main.html", types=item_types)
-
-
-@app.route("/login")
-def login():
-    return render_template("login.html")
-
+    
 @app.route("/login", methods=["POST", "GET"])
 def login():
     if request.method == "POST":
@@ -112,25 +107,7 @@ def content_add():
             return redirect(url_for("main"))
     else:
         return redirect(url_for("main"))
-
-@app.route("/content_add", methods=["POST", "GET"])
-def content_add_db():
-    conn = sqlite3.connect("database.db")
-    cur = conn.cursor()
-    if "logged_in" in session:
-        
-        mod = cur.execute(f"SELECT mod FROM users WHERE user_name='{session["username"]}';").fetchone()
-        if mod:
-            title = request.form.get("title")
-            type = request.form.get("type")
-            content = request.form.get("content")
-            cur.execute(f"INSERT INTO items (item_name, item_type, item_content) VALUES ('{title}', '{type}', '{content}');")
-            conn.commit()
-            return redirect(url_for("main"))
     
-@app.route("/fighting_styles")
-def fighting_style():
-    return render_template("fighting_styles.html")
 
 @app.route("/types/<type_chosen>")
 def content(type_chosen):
