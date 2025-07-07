@@ -12,7 +12,10 @@ app.secret_key = os.getenv("key")
 @app.route("/main")
 def main():
     if "logged_in" in session:
-        return render_template("main.html", username=session["username"], logged_in=session["logged_in"])
+        conn = sqlite3.connect("database.db")
+        cur = conn.cursor()
+        mod = cur.execute(f"SELECT mod FROM users WHERE user_name='{session["username"]}'")
+        return render_template("main.html", username=session["username"], logged_in=session["logged_in"], mod=mod)
     else:
         return render_template("main.html")
 
@@ -28,7 +31,7 @@ def login_check():
     username = request.form.get("user")
     password = request.form.get("pass")
 
-    users = cur.execute("SELECT user_name, user_password FROM users")
+    users = cur.execute("SELECT user_name, user_password FROM users;")
 
     username_found = False
     password_found = False
@@ -62,7 +65,7 @@ def signup_check():
     username = request.form.get("user")
     password = request.form.get("pass")
 
-    users = cur.execute("SELECT user_name FROM users")
+    users = cur.execute("SELECT user_name FROM users;")
 
     username_found = False
 
@@ -72,7 +75,7 @@ def signup_check():
             break
     
     if not username_found:
-        cur.execute(f"INSERT INTO users (user_name, user_password, mod) VALUES ('{username}', '{password}', FALSE)")
+        cur.execute(f"INSERT INTO users (user_name, user_password, mod) VALUES ('{username}', '{password}', FALSE);")
         conn.commit()
 
         session["username"] = username
@@ -94,25 +97,47 @@ def content_add():
     conn = sqlite3.connect("database.db")
     cur = conn.cursor()
     if "logged_in" in session:
-        mod = "TRUE"
-        if mod == "TRUE":
+        mod = bool(cur.execute(f"SELECT mod FROM users WHERE user_name='{session["username"]}';").fetchone()[0])
+        if mod:
             return render_template("content_add.html")
         else:
             return redirect(url_for("main"))
     else:
         return redirect(url_for("main"))
 
-@app.route("/content_add_db")
+@app.route("/content_add_db", methods=["POST", "GET"])
 def content_add_db():
     conn = sqlite3.connect("database.db")
     cur = conn.cursor()
     if "logged_in" in session:
-        mod = "TRUE"
-        if mod == "TRUE":
+        
+        mod = cur.execute(f"SELECT mod FROM users WHERE user_name='{session["username"]}';").fetchone()
+        if mod:
             title = request.form.get("title")
             type = request.form.get("type")
             content = request.form.get("content")
+            cur.execute(f"INSERT INTO items (item_name, item_type, item_content) VALUES ('{title}', '{type}', '{content}');")
+            conn.commit()
+            return redirect(url_for("main"))
+    
+@app.route("/fightning_styles")
+def fighting_style():
+    return render_template("fightning_styles.html")
 
+
+@app.route("/magic")
+def fighting_style():
+    return render_template("magic.html")
+
+
+@app.route("/races")
+def fighting_style():
+    return render_template("races.html")
+
+
+@app.route("/skills")
+def fighting_style():
+    return render_template("skills.html")
 
 if __name__ == "__main__":
-    app.run()
+    app.run()   
