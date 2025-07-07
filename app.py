@@ -125,9 +125,8 @@ def content_add_db():
 def content(type_chosen):
     conn = sqlite3.connect("database.db")
     cur = conn.cursor()
-    title = cur.execute(f"SELECT item_name FROM items WHERE item_type='{type_chosen}'")
-    content = cur.execute(f"SELECT item_content FROM items WHERE item_type='{type_chosen}'")
-    print()
+    title = cur.execute(f"SELECT item_name FROM items WHERE item_type=('{type_chosen}');")
+    content = cur.execute(f"SELECT item_content FROM items WHERE item_type=('{type_chosen}');")
     return render_template("content.html", type=type_chosen, title=title, content=content)
 
 if __name__ == "__main__":
