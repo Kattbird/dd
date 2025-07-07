@@ -89,25 +89,19 @@ def content_add():
     if "logged_in" in session:
         mod = bool(cur.execute("SELECT mod FROM users WHERE user_name='?';", (session["username"],)).fetchone()[0])
         if mod:
-            return render_template("content_add.html")
+            if request.method == "POST":
+                title = request.form.get("title")
+                type = request.form.get("type")
+                content = request.form.get("content")
+                cur.execute("INSERT INTO items (item_name, item_type, item_content) VALUES ('?', '?', '?');", (title, type, content),)
+                conn.commit()
+                return redirect(url_for("main"))
+            else:
+                return render_template("content_add.html")
         else:
             return redirect(url_for("main"))
     else:
         return redirect(url_for("main"))
-
-@app.route("/content_add_db", methods=["POST", "GET"])
-def content_add_db():
-    conn = sqlite3.connect("database.db")
-    cur = conn.cursor()
-    if "logged_in" in session:
-        mod = bool(cur.execute("SELECT mod FROM users WHERE user_name='?';", (session["username"],)).fetchone())
-        if mod:
-            title = request.form.get("title")
-            type = request.form.get("type")
-            content = request.form.get("content")
-            cur.execute("INSERT INTO items (item_name, item_type, item_content) VALUES ('?', '?', '?');", (title, type, content),)
-            conn.commit()
-            return redirect(url_for("main"))
     
 
 @app.route("/types/<type_chosen>")
