@@ -20,7 +20,11 @@ def main():
         return render_template("main.html", username=session["username"], logged_in=session["logged_in"], mod=mod, types=item_types)
     else:
         return render_template("main.html", types=item_types)
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> 9689d2271abaaaa4344c3481830156f9bcb4722b
 @app.route("/login")
 def login():
     return render_template("login.html")
