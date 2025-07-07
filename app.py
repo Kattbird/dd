@@ -121,9 +121,13 @@ def content_add_db():
             conn.commit()
             return redirect(url_for("main"))
     
-@app.route("/types/<type>")
-def fighting_style():
-    return render_template("content.html")
+@app.route("/types/<type_chosen>")
+def content(type_chosen):
+    conn = sqlite3.connect("database.db")
+    cur = conn.cursor()
+    title = cur.execute(f"SELECT item_name FROM items WHERE item_type={type_chosen}")
+    content = cur.execute(f"SELECT item_content FROM items WHERE item_type={type_chosen}")
+    return render_template("content.html", type=type_chosen, title=title, content=content)
 
 if __name__ == "__main__":
     app.run()
