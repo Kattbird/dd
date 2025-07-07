@@ -72,3 +72,12 @@ INSERT INTO items(item_name,item_type,item_content) VALUES ('Meliodas','Fighting
 INSERT INTO items(item_name,item_type,item_content) VALUES ('Giant','Fighting Styles','100%');
 INSERT INTO items(item_name,item_type,item_content) VALUES ('Fairy','Fighting Styles','100%');
 INSERT INTO items(item_name,item_type,item_content) VALUES ('Demon','Fighting Styles','100%');
+
+-- Subskills
+INSERT INTO items(item_name,item_type,item_content) VALUES ('Climbing','Subskills','A skill used to level up and progress the games story');
+INSERT INTO items(item_name,item_type,item_content) VALUES ('Flying','Subskills','A skill used to level up and progress the games story');
+INSERT INTO items(item_name,item_type,item_content) VALUES ('Cooking','Subskills','A skill used to level up and progress the games story');
+INSERT INTO items(item_name,item_type,item_content) VALUES ('Stealth','Subskills','A skill used to level up and progress the games story');
+INSERT INTO items(item_name,item_type,item_content) VALUES ('Lockpicking','Subskills','A skill used to level up and progress the games story');
+INSERT INTO items(item_name,item_type,item_content) VALUES ('Theft','Subskills','A skill used to level up and progress the games story');
+INSERT INTO items(item_name,item_type,item_content) VALUES ('Smithing','Subskills','A skill used to level up and progress the games story');
