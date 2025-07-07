@@ -30,17 +30,20 @@
         </div>
         <div class="flex justify-center items-center h-screen">
             <div class="bg-black/75 p-5 h-175 flex-initial size-250 border-1 border-white rounded-2xl">
-                <div class="lablebox bg-white p-5 m-5 rounded-2xl border-1 border-black">
+                <div class="bg-white p-5 m-5 rounded-2xl border-1 border-black">
                     <div>
                         <h1 class="text-center text-4x1 font-bold ">
                             HOLY WAR X
                         </h1>
                     </div>
-            <div>
-                <a href="/magic" class="border-1 border-black p-3 m-10 rounded-2xl bg-white">
-                    Magic
-                </a>
+            
             </div>
+            <div>
+                {% for i in types %}
+                    <a href="/{i}" class="border-1 border-black p-3 m-10 rounded-2xl bg-white">
+                        {i}
+                    </a>
+                {% endfor %}
             </div>
         </div>
     </div>
