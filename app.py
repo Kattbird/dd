@@ -19,7 +19,11 @@ def main():
         item_types = cur.execute("SELECT item_type FROM items;").fetchall()
         return render_template("main.html", username=session["username"], logged_in=session["logged_in"], mod=mod, types=item_types)
     else:
+<<<<<<< HEAD
         return render_template("main.html", types=[('magic'), ('fighting styles'),])
+=======
+        return render_template("main.html", types=item_types)
+>>>>>>> 9689d2271abaaaa4344c3481830156f9bcb4722b
 
 @app.route("/login")
 def login():
