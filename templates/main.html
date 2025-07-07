@@ -40,9 +40,11 @@
             </div>
             <div>
                 {% for i in types %}
-                    <a href="/types/{{i}}" class="border-1 border-black p-3 m-10 rounded-2xl bg-white">
-                        {{i}}
-                    </a>
+                    <div>
+                        <a href="/types/{{i[0]}}" class="border-1 border-black p-3 m-10 rounded-2xl bg-white">
+                            {{i[0]}}
+                        </a>
+                    </div>
                 {% endfor %}
             </div>
         </div>
