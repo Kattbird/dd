@@ -127,6 +127,7 @@ def content(type_chosen):
     cur = conn.cursor()
     title = cur.execute(f"SELECT item_name FROM items WHERE item_type={type_chosen}")
     content = cur.execute(f"SELECT item_content FROM items WHERE item_type={type_chosen}")
+    print()
     return render_template("content.html", type=type_chosen, title=title, content=content)
 
 if __name__ == "__main__":
