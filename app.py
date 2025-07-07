@@ -13,10 +13,16 @@ app.secret_key = os.getenv("key")
 def main():
     conn = sqlite3.connect("database.db")
     cur = conn.cursor()
+<<<<<<< HEAD
+    item_types = cur.execute("SELECT item_type FROM items;").fetchall()
+    if "logged_in" in session:
+        mod = cur.execute(f"SELECT mod FROM users WHERE user_name='{session["username"]}'")
+=======
 
     item_types = cur.execute("SELECT item_type FROM items;").fetchall()
     if "logged_in" in session:
         mod = bool(cur.execute(f"SELECT mod FROM users WHERE user_name='{session["username"]}'"))
+>>>>>>> b98b9bafa151c830d7a69df6f919523b640236a4
         return render_template("main.html", username=session["username"], logged_in=session["logged_in"], mod=mod, types=item_types)
     else:
         return render_template("main.html", types=item_types)
@@ -129,7 +135,10 @@ def content(type_chosen):
     cur = conn.cursor()
     title = cur.execute(f"SELECT item_name FROM items WHERE item_type=('{type_chosen}');")
     content = cur.execute(f"SELECT item_content FROM items WHERE item_type=('{type_chosen}');")
+<<<<<<< HEAD
+=======
     print()
+>>>>>>> b98b9bafa151c830d7a69df6f919523b640236a4
     return render_template("content.html", type=type_chosen, title=title, content=content)
 
 if __name__ == "__main__":
