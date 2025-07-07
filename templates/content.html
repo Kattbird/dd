@@ -1,10 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
     <title></title>
 </head>
-<body>
+<body class="contentbackground">
+    <div class="flex justify-center items-center h-screen">
+        <div class="bg-black/75 p-5 h-175 flex-initial size-250 border-1 border-white rounded-2xl">
+            <div class="bg-white p-5 m-5 rounded-2xl border-1 border-black">
+                <div>
+                    {% for i in type%}
+                    <h1 class="text-center text-4x1 font-bold ">
+                        {{i}}
+                    </h1>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>   
 </body>
 </html>

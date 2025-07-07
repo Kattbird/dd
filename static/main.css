@@ -28,3 +28,9 @@
     background-size: cover;
     
 }
+
+.contentbackground {
+    background-image: url("content_background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
