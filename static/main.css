@@ -5,7 +5,7 @@
 }
 
 .bodylogin {
-    background-image: url("escanorandmael.png");
+    background-image: url("maelbackground.png");
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -20,4 +20,11 @@
     background-image: url("signupbackground.png");
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.bodycontentadd {
+    background-image: url("content_add_hawk.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    
 }
