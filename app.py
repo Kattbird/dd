@@ -21,10 +21,11 @@ def main():
     item_types = cur.execute("SELECT item_type FROM items;").fetchall()
     if "logged_in" in session:
         mod = bool(cur.execute(f"SELECT mod FROM users WHERE user_name='{session["username"]}'"))
-        return render_template("main.html", username=session["username"], logged_in=session["logged_in"], mod=mod, types=item_types)
-    else:
+
         item_types = cur.execute("SELECT item_type FROM items;").fetchall()
         return render_template("main.html", username=session["username"], logged_in=session["logged_in"], mod=mod, types=item_types)
+    else:
+        return render_template("main.html", types=item_types)
 
 
 @app.route("/login")
