@@ -63,3 +63,12 @@ INSERT INTO items(item_name,item_type,item_content) VALUES ('Time','Magic','Dio 
 INSERT INTO items(item_name,item_type,item_content) VALUES ('Transpork','Magic','Hawks magic');
 INSERT INTO items(item_name,item_type,item_content) VALUES ('Light','Magic','Goddeses magic');
 INSERT INTO items(item_name,item_type,item_content) VALUES ('Full counter','Magic','Maliodas magic');
+
+-- Fighting Styles
+INSERT INTO items(item_name,item_type,item_content) VALUES ('Brawler','Fighting Styles','Common - based on yuji intadori');
+INSERT INTO items(item_name,item_type,item_content) VALUES ('Karate','Fighting Styles','?');
+INSERT INTO items(item_name,item_type,item_content) VALUES ('Ashiin','Fighting Styles','legendary - Based on Rogue Lineages Ashiin race combat');
+INSERT INTO items(item_name,item_type,item_content) VALUES ('Meliodas','Fighting Styles','mythical - only with voicelines');
+INSERT INTO items(item_name,item_type,item_content) VALUES ('Giant','Fighting Styles','100%');
+INSERT INTO items(item_name,item_type,item_content) VALUES ('Fairy','Fighting Styles','100%');
+INSERT INTO items(item_name,item_type,item_content) VALUES ('Demon','Fighting Styles','100%');
