@@ -30,7 +30,7 @@
 }
 
 .contentbackground {
-    background-image: url(content_background.png);
+    background-image: url("content_background.png");
     background-repeat: no-repeat;
     background-size: cover;
 }
