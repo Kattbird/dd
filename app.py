@@ -92,13 +92,13 @@ def content_add():
     conn = sqlite3.connect("database.db")
     cur = conn.cursor()
     if "logged_in" in session:
-        mod = bool(cur.execute("SELECT mod FROM users WHERE user_name='?';", (session["username"],)).fetchone()[0])
+        mod = bool(cur.execute("SELECT mod FROM users WHERE user_name=?;", (session["username"],)).fetchone()[0])
         if mod:
             if request.method == "POST":
                 title = request.form.get("title")
                 type = request.form.get("type")
                 content = request.form.get("content")
-                cur.execute("INSERT INTO items (item_name, item_type, item_content) VALUES ('?', '?', '?');", (title, type, content),)
+                cur.execute("INSERT INTO items (item_name, item_type, item_content) VALUES (?, ?, ?);", (title, type, content),)
                 conn.commit()
                 return redirect(url_for("main"))
             else:
