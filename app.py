@@ -119,6 +119,25 @@ def content_add_db():
             cur.execute(f"INSERT INTO items (item_name, item_type, item_content) VALUES ('{title}', '{type}', '{content}');")
             conn.commit()
             return redirect(url_for("main"))
+    
+@app.route("/fightning_styles")
+def fighting_style():
+    return render_template("fightning_styles.html")
+
+
+@app.route("/magic")
+def fighting_style():
+    return render_template("magic.html")
+
+
+@app.route("/races")
+def fighting_style():
+    return render_template("races.html")
+
+
+@app.route("/skills")
+def fighting_style():
+    return render_template("skills.html")
 
 if __name__ == "__main__":
-    app.run()
+    app.run()   
