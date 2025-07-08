@@ -3,7 +3,8 @@ CREATE TABLE users (
     user_id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_name TEXT NOT NULL,
     user_password TEXT NOT NULL,
-    mod INTEGER NOT NULL
+    mod INTEGER NOT NULL,
+    user_pfp BLOB NOT NULL
 );
 
 CREATE TABLE items (
