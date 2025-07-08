@@ -44,7 +44,7 @@ INSERT INTO users(user_name,user_password,mod) VALUES ('KaperDan','HWX',1);
 INSERT INTO items(item_name,item_type,item_content) VALUES (title,type,content);
 SELECT item_name,item_content FROM items WHERE item_type='{}';
 SELECT item_type FROM items;
-DELETE FROM item_content WHERE item_name='' and WHERE item_type='';
+DELETE FROM item_content WHERE item_name='' AND item_type='';
 
 
 -- Race
