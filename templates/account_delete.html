@@ -1,11 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <title>account delete</title>
 </head>
 <body>
-    
+    <div class="bodylogin">
+        <div class="p-5">
+            <a href="/main" class="backbuttonimage rounded-3xl p-5 absolute w-50 h-25">
+                              
+            </a>
+        </div>
+        <div class="flex justify-center items-center h-screen">
+            <div class="bg-black/75 p-5 h-175 rounded-2xl flex-initial size-150 border-1 border-white">
+                <div class="bg-white p-5 m-5 rounded-2xl">
+                    <h1 class="text-center text-4xl font-bold">
+                        ACCOUNT DELETE
+                    </h1>
+                </div>
+                <div class="bg-white p-15 m-15 flex justify-center rounded-2xl">
+                    <form action="/login" method="POST">
+                        <div>
+                            <input type="password", name="pass", placeholder="Password" class="border m-5 p-1 rounded-2xl">
+                        </div>
+                        <div>
+                            <input type="submit" class="p-5 text-center border m-17 bg-white rounded-2xl font-bold">
+                        </div>  
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
