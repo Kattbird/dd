@@ -132,5 +132,35 @@ def content_remove():
         return render_template("content_remove.html")
 
 
+@app.route("/user_settings")
+def user_settings():
+    return render_template("user_settings.html")
+
+
+@app.route("/password_change", methods=["POST", "GET"])
+def password_change():
+    conn = sqlite3.connect("database.db")
+    cur = conn.cursor()
+    current_password = cur.execute("SELECT user_password FROM users WHERE user_name=?;", (session["username"],)).fetchone()[0]
+    old_password = request.form.get("old")
+    new_password = request.form.get("new")
+    if old_password == current_password:
+        cur.execute("UPDATE users SET user_password = ? WHERE user_name=?", (new_password, session["username"]))
+        conn.commit()
+    return redirect(url_for("user_settings"))
+
+
+@app.route("/account_delete", methods=["POST", "GET"])
+def account_delete():
+    conn = sqlite3.connect("database.db")
+    cur = conn.cursor()
+    password = request.form.get("pass")
+    cur.execute("DELETE FROM users WHERE user_name=? AND user_password=?;", (session["username"], password))
+    conn.commit()
+    session.pop("username")
+    session.pop("logged_in")
+    return redirect(url_for("main"))
+
+
 if __name__ == "__main__":
     app.run()
