@@ -2,21 +2,29 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <title></title>
 </head>
 <body class="contentbackground">
     <div class="flex justify-center items-center h-screen">
-        <div class="bg-black/75 p-5 h-175 flex-initial size-250 border-1 border-white rounded-2xl">
+        <div class="bg-black/75 p-5 h-200 flex-initial size-250 border-1 border-white rounded-2xl">
             <div class="bg-white p-5 m-5 rounded-2xl border-1 border-black">
                 <div>
-                   
-                    <h1 class="text-center text-4x1 font-bold color-white ">
-                        {% for i in type%}
-                            {{i}}
-                        {% endfor %}
+                    <h1 class="text-center text-4x1 font-bold">
+                        {{type}}
                     </h1>
-                    
                 </div>
+            </div>
+
+            <div class="text-white font-bold">
+                {% for i in range(title|length) %}
+                    <div class="mt-10">
+                        <h3>{{title[i][0]}}</h3>
+                    </div>
+                    <div>
+                        {{content[i][0]}}
+                    </div>
+                {% endfor %}
             </div>
         </div>
     </div>   

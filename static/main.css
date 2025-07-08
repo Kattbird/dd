@@ -34,3 +34,9 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.backbuttonimage {
+    background-image: url("backbuttonimage.png");
+    background-repeat: no-repeat;
+    background-size: cover
+}
