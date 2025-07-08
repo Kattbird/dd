@@ -13,7 +13,8 @@ app.secret_key = os.getenv("key")
 def main():
     conn = sqlite3.connect("database.db")
     cur = conn.cursor()
-    item_types = cur.execute("SELECT item_type FROM items;").fetchall()
+    item_types = set(cur.execute("SELECT item_type FROM items;").fetchall())
+    print(item_types)
     if "logged_in" in session:
         mod = bool(cur.execute("SELECT mod FROM users WHERE user_name=?", (session["username"],)))
         return render_template("main.html", username=session["username"], logged_in=session["logged_in"], mod=mod, types=item_types)
