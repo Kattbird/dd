@@ -19,26 +19,20 @@
                         Content Add
                     </h1>
                 </div>
-                <div class="bg-white p-15 m-15 flex justify-center rounded-2xl h-120">
+                <div class="bg-white p-15 m-15 rounded-2xl h-118">
                     <form action="/content_add" method="POST">
                         <div>
-                            <input type="text", name="title", placeholder="Title" class="border mt-5 p-1 rounded-2xl">
+                            <input type="text", name="title", placeholder="Title" class="border m-5 p-1 rounded-2xl">
                         </div>
-                            <input type="text", name="type", placeholder="Type" class="border mt-5 p-1 rounded-2xl">
-                        <div>
-                        </div>
-                        <div class="text-wrap">
-                            <input type="text", name="content", placeholder="Content" class="border m-5 p-1 rounded-2xl size=150">
-                        <div>
-                            <textarea name="content" rows="5" cols="100" wrap="soft" class="border mt-2 rounded-2xl"> </textarea>
-
+                            <input type="text", name="type", placeholder="Type" class="border m-5 p-1 rounded-2xl">
+                        <div class="flex">
+                            <textarea name="content" rows="3" cols="23" wrap="soft" class="border m-5 p-1 rounded-2xl w-150">
+                            </textarea>
                         </div>
                         <div>
-                            <input type="submit" class="p-5 text-center border mt-5 bg-white rounded-2xl font-bold">
+                            <input type="submit" class="p-5 text-center border m-5 bg-white rounded-2xl font-bold">
                         </div>
-                        
                     </form>
-
                 </div>
             </div>
         </div>
