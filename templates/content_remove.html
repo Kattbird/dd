@@ -3,35 +3,33 @@
 <head>
     <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <title>Content Add</title>
+    <title>Content Remove</title>
 </head>
 <body>
     <div class="bodycontentadd">
         <div class="p-5">
             <a href="/main" class="backbuttonimage rounded-3xl p-5 absolute w-50 h-50">
-                
+                              
             </a>
         </div>
         <div class="flex justify-center items-center h-screen">
-            <div class="bg-black/75 p-5 h-175 rounded-2xl flex-initial size-300 border-1 border-white">
+            <div class="bg-black/75 p-5 h-175 rounded-2xl flex-initial size-150 border-1 border-white">
                 <div class="bg-white p-5 m-5 rounded-2xl">
                     <h1 class="text-center text-4xl font-bold">
-                        Content Add
+                        Content Remove
                     </h1>
                 </div>
-                <div class="bg-white p-15 m-15 rounded-2xl h-118">
-                    <form action="/content_add" method="POST">
+                <div class="bg-white p-15 m-15 flex justify-center rounded-2xl">
+                    <form action="/content_remove" method="POST">
                         <div>
                             <input type="text", name="title", placeholder="Title" class="border m-5 p-1 rounded-2xl">
                         </div>
+                        <div>
                             <input type="text", name="type", placeholder="Type" class="border m-5 p-1 rounded-2xl">
-                        <div class="flex">
-                            <textarea name="content" rows="3" cols="23" wrap="soft" class="border m-5 p-1 rounded-2xl w-150">
-                            </textarea>
                         </div>
                         <div>
-                            <input type="submit" class="p-5 text-center border m-5 bg-white rounded-2xl font-bold">
-                        </div>
+                            <input type="submit" class="p-5 text-center border m-17 bg-white rounded-2xl font-bold">
+                        </div>  
                     </form>
                 </div>
             </div>
