@@ -145,13 +145,7 @@ def password_change():
         current_password = cur.execute("SELECT user_password FROM users WHERE user_name=?;", (session["username"],)).fetchone()[0]
         old_password = request.form.get("old")
         new_password = request.form.get("new")
-<<<<<<< HEAD
-        print((old_password))
-        print(new_password)
-        if old_password == current_password:
-=======
         if old_password == current_password and new_password != None:
->>>>>>> 21dbfed4b99809594827fb4b442e88c208d8a80f
             cur.execute("UPDATE users SET user_password = ? WHERE user_name=?", (new_password, session["username"]))
             conn.commit()
     return render_template("password_change.html")
