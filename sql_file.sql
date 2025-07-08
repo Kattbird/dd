@@ -54,7 +54,7 @@ INSERT INTO items(item_name,item_type,item_content) VALUES ('Fairy','Race','Eigh
 INSERT INTO items(item_name,item_type,item_content) VALUES ('Beastman','Race','fifteen percent chance');
 INSERT INTO items(item_name,item_type,item_content) VALUES ('Vampite','Race','fifteen percent chance - human sized - have ears - gray skin - cant fly - will burn in sun - slower healt regen during day - normal food is poison');
 INSERT INTO items(item_name,item_type,item_content) VALUES ('Pig','Race','zero point tree tree percent chance');
-INSERT INTO items(item_name,item_type,item_content) VALUES ('Goddes','Race','five percent chance - has two wings - human sized');
+INSERT INTO items(item_name,item_type,item_content) VALUES ('Goddess','Race','five percent chance - has two wings - human sized');
 INSERT INTO items(item_name,item_type,item_content) VALUES ('Demon','Race','five percent chance - runs on all fours - have horns - skin tone red or other - only allowed first stage - demon combat style');
 
 -- Magic
@@ -65,7 +65,7 @@ INSERT INTO items(item_name,item_type,item_content) VALUES ('Take-over','Magic',
 INSERT INTO items(item_name,item_type,item_content) VALUES ('Time','Magic','Dio magic');
 INSERT INTO items(item_name,item_type,item_content) VALUES ('Transpork','Magic','Hawks magic');
 INSERT INTO items(item_name,item_type,item_content) VALUES ('Light','Magic','Goddeses magic');
-INSERT INTO items(item_name,item_type,item_content) VALUES ('Full counter','Magic','Maliodas magic');
+INSERT INTO items(item_name,item_type,item_content) VALUES ('Full counter','Magic','Meliodas magic');
 
 -- Fighting Styles
 INSERT INTO items(item_name,item_type,item_content) VALUES ('Brawler','Fighting Styles','Common - based on yuji intadori');
