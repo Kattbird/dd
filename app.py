@@ -100,9 +100,7 @@ def content_add():
                 content = request.form.get("content")
                 cur.execute("INSERT INTO items (item_name, item_type, item_content) VALUES (?, ?, ?);", (title, type, content),)
                 conn.commit()
-                return redirect(url_for("main"))
-            else:
-                return render_template("content_add.html")
+            return render_template("content_add.html")
         else:
             return redirect(url_for("main"))
     else:
@@ -110,7 +108,7 @@ def content_add():
     
 
 @app.route("/types/<type_chosen>")
-def content_add(type_chosen):
+def content(type_chosen):
     conn = sqlite3.connect("database.db")
     cur = conn.cursor()
     title = cur.execute("SELECT item_name FROM items WHERE item_type=?;", (type_chosen,)).fetchall()
@@ -118,11 +116,19 @@ def content_add(type_chosen):
     print(title, content, type_chosen)
     return render_template("content.html", type=type_chosen, title=title, content=content)
 
+
 @app.route("/content_remove", methods=["POST", "GET"])
 def content_remove():
+    conn = sqlite3.connect("database.db")
+    cur = conn.cursor()
     if request.method == "POST":
-        conn = sqlite3.connect("database.db")
-        cur = conn.cursor()
+        mod = bool(cur.execute("SELECT mod FROM users WHERE user_name=?;", (session["username"],)).fetchone()[0])
+        if mod:
+            title = request.form.get("title")
+            content_type = request.form.get("type")
+            cur.execute("DELETE FROM items WHERE (item_name=?, item_type=?);", (title, content_type))
+            conn.commit()
+        return render_template("content_remove.html")
     else:
         return render_template("content_remove.html")
 
