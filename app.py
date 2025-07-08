@@ -110,7 +110,7 @@ def content_add():
     
 
 @app.route("/types/<type_chosen>")
-def content_add(type_chosen):
+def content(type_chosen):
     conn = sqlite3.connect("database.db")
     cur = conn.cursor()
     title = cur.execute("SELECT item_name FROM items WHERE item_type=?;", (type_chosen,)).fetchall()
@@ -121,8 +121,11 @@ def content_add(type_chosen):
 @app.route("/content_remove", methods=["POST", "GET"])
 def content_remove():
     if request.method == "POST":
-        conn = sqlite3.connect("database.db")
-        cur = conn.cursor()
+        mod = bool(cur.execute("SELECT mod FROM users WHERE user_name=?;", (session["username"],)).fetchone()[0])
+        if mod:
+            conn = sqlite3.connect("database.db")
+            cur = conn.cursor()
+            
     else:
         return render_template("content_remove.html")
 

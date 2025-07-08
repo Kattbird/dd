@@ -36,7 +36,7 @@ CREATE TABLE item_comments (
     FOREIGN KEY(user_id) REFERENCES users(user_id)
 );
 
--- help for frontend
+-- help for backend
 INSERT INTO users(user_name,user_password,mod) VALUES ('Dannyminer','Gribby',1);
 INSERT INTO users(user_name,user_password,mod) VALUES ('SabaEnjoyer','a',1);
 INSERT INTO users(user_name,user_password,mod) VALUES ('KaperDan','HWX',1);
