@@ -98,8 +98,9 @@ def content_add():
                 title = request.form.get("title")
                 type = request.form.get("type")
                 content = request.form.get("content")
-                cur.execute("INSERT INTO items (item_name, item_type, item_content) VALUES (?, ?, ?);", (title, type, content),)
-                conn.commit()
+                if (title != None and type != None and content != None):
+                    cur.execute("INSERT INTO items (item_name, item_type, item_content) VALUES (?, ?, ?);", (title, type, content),)
+                    conn.commit()
             return render_template("content_add.html")
         else:
             return redirect(url_for("main"))
