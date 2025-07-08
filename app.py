@@ -110,7 +110,7 @@ def content_add():
     
 
 @app.route("/types/<type_chosen>")
-def content_add(type_chosen):
+def content(type_chosen):
     conn = sqlite3.connect("database.db")
     cur = conn.cursor()
     title = cur.execute("SELECT item_name FROM items WHERE item_type=?;", (type_chosen,)).fetchall()
