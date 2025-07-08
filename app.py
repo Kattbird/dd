@@ -15,7 +15,8 @@ def main():
     cur = conn.cursor()
     item_types = set(cur.execute("SELECT item_type FROM items;").fetchall())
     if "logged_in" in session:
-        mod = bool(cur.execute("SELECT mod FROM users WHERE user_name=?", (session["username"],)))
+        mod = bool(cur.execute("SELECT mod FROM users WHERE user_name=?", (session["username"],)).fetchone())
+        print(mod)
         return render_template("main.html", username=session["username"], logged_in=session["logged_in"], mod=mod, types=item_types)
     else:
         return render_template("main.html", types=item_types)

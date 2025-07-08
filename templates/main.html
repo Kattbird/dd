@@ -22,14 +22,14 @@
                 <a href="/user_settings"class="border-1 border-black p-3 m-3 rounded-2xl bg-white">Logged in as: {{username}}
                     
                 </a>
-            {% if mod == True %}
-            <a href="/content_add" class="border-1 border-black p-3 m-3 rounded-2xl bg-white">
-                Add
-            </a>
-            <a href="/content_remove" class="border-1 border-black p-3 m-3 rounded-2xl bg-white">
-                Remove
-            </a>
-            {% endif %}
+                {% if mod == True %}
+                    <a href="/content_add" class="border-1 border-black p-3 m-3 rounded-2xl bg-white">
+                        Add
+                    </a>
+                    <a href="/content_remove" class="border-1 border-black p-3 m-3 rounded-2xl bg-white">
+                        Remove
+                    </a>
+                {% endif %}
             {% endif %}
             
         </div>
