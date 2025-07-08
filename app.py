@@ -126,7 +126,7 @@ def content_remove():
         if mod:
             title = request.form.get("title")
             content_type = request.form.get("type")
-            cur.execute("DELETE FROM item_content WHERE (item_name=?, item_type=?;)", (title, content_type))
+            cur.execute("DELETE FROM item_content WHERE (item_name=?, item_type=?);", (title, content_type))
             conn.commit()
         return render_template("content_remove.html")
     else:
