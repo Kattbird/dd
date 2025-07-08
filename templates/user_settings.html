@@ -1,11 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>The Settings Page</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>settings</title>
 </head>
 <body>
-    <h1>
-        Setings
-    </h1>
+    <div class="bodylogin">
+        <div class="p-5">
+            <a href="/main" class="backbuttonimage rounded-3xl p-5 absolute w-50 h-25">
+                              
+            </a>
+        </div>
+        <div class="flex justify-center items-center h-screen">
+            <div class="bg-black/75 p-5 h-175 rounded-2xl flex-initial size-150 border-1 border-white">
+                <div class="bg-white p-5 m-5 rounded-2xl">
+                    <h1 class="text-center text-4xl font-bold">
+                        User Settings
+                    </h1>
+                </div>
+                <div class="bg-white p-15 m-15 flex justify-center rounded-2xl">
+                    <a href="/password_change" class="p-5 text-center border m-17 bg-white rounded-2xl font-bold">
+                        Password Change
+                    </a>
+                    <a href="/account_delete" class="p-5 text-center border m-17 bg-white rounded-2xl font-bold">
+                        Account Delete
+                    </a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
