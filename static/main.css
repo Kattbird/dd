@@ -31,8 +31,9 @@
 
 .contentbackground {
     background-image: url("meliodasbackground.png");
-    background-repeat: no-repeat;
+    background-repeat:repeat-y;
     background-size: cover;
+    background-color: #0e0e0e;
 }
 
 .backbuttonimage {
