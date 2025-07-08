@@ -40,3 +40,9 @@
     background-repeat: no-repeat;
     background-size:contain
 }
+
+.HWXadvert {
+    background-image: url("hwxad.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
