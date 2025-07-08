@@ -100,9 +100,7 @@ def content_add():
                 content = request.form.get("content")
                 cur.execute("INSERT INTO items (item_name, item_type, item_content) VALUES (?, ?, ?);", (title, type, content),)
                 conn.commit()
-                return redirect(url_for("main"))
-            else:
-                return render_template("content_add.html")
+            return render_template("content_add.html")
         else:
             return redirect(url_for("main"))
     else:
@@ -118,6 +116,7 @@ def content(type_chosen):
     print(title, content, type_chosen)
     return render_template("content.html", type=type_chosen, title=title, content=content)
 
+
 @app.route("/content_remove", methods=["POST", "GET"])
 def content_remove():
     if request.method == "POST":
@@ -125,7 +124,11 @@ def content_remove():
         if mod:
             conn = sqlite3.connect("database.db")
             cur = conn.cursor()
-            
+            title = request.form.get("title")
+            content_type = request.form.get("type")
+            cur.execute("DELETE FROM item_content WHERE item_name=? and WHERE item_type=?;", (title, content_type))
+            conn.commit()
+        return redirect(url_for("main"))
     else:
         return render_template("content_remove.html")
 
