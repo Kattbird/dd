@@ -6,9 +6,10 @@
     <title></title>
 </head>
 <body class="contentbackground">
-    <div class="p-5">
+    <div class="h-[10vh]">
         <a href="/main" class="backbuttonimage rounded-3xl p-5 absolute w-50 h-25">    
         </a>
+    </div>
     <div class="flex justify-center items-center h-screen">
         <div class="bg-black/75 p-5 flex-initial size-250 border-1 border-white rounded-2xl h-auto">
             <div class="bg-white p-5 m-5 rounded-2xl border-1 border-black">
@@ -21,10 +22,10 @@
 
             <div class="text-white font-bold">
                 {% for i in range(title|length) %}
-                    <div class="mt-10">
-                        <h3>{{title[i][0]}}</h3>
+                    <div class="mt-10 text-xl">
+                        <h1>{{title[i][0]}}</h1>
                     </div>
-                    <div>
+                    <div class="text-grey">
                         {{content[i][0]}}
                     </div>
                 {% endfor %}
