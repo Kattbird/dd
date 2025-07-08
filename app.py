@@ -15,14 +15,7 @@ def main():
     cur = conn.cursor()
     item_types = set(cur.execute("SELECT item_type FROM items;").fetchall())
     if "logged_in" in session:
-
-        mod = bool(cur.execute("SELECT mod FROM users WHERE user_name=?", (session["username"],)).fetchone())
-        print(mod)
-
-        x = cur.execute("SELECT mod FROM users WHERE user_name=?", (session["username"],)).fetchone()[0]
-        print(x)
-        mod = bool(x)
-
+        mod = bool(cur.execute("SELECT mod FROM users WHERE user_name=?", (session["username"],)).fetchone()[0])
         return render_template("main.html", username=session["username"], logged_in=session["logged_in"], mod=mod, types=item_types)
     else:
         return render_template("main.html", types=item_types)
@@ -73,7 +66,7 @@ def signup():
         if users and len(users) > 0:
             username_found = True
         
-        if not username_found:
+        if not username_found and (username != None and password != None):
             cur.execute("INSERT INTO users (user_name, user_password, mod) VALUES (?, ?, ?);", (username, password,False))
             conn.commit()
 
@@ -152,9 +145,7 @@ def password_change():
         current_password = cur.execute("SELECT user_password FROM users WHERE user_name=?;", (session["username"],)).fetchone()[0]
         old_password = request.form.get("old")
         new_password = request.form.get("new")
-        print((old_password))
-        print(new_password)
-        if old_password == current_password:
+        if old_password == current_password and new_password != None:
             cur.execute("UPDATE users SET user_password = ? WHERE user_name=?", (new_password, session["username"]))
             conn.commit()
     return render_template("password_change.html")
