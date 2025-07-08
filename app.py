@@ -114,8 +114,8 @@ def content(type_chosen):
     type_chosen = type_chosen[0]
     conn = sqlite3.connect("database.db")
     cur = conn.cursor()
-    title = cur.execute("SELECT item_name FROM items WHERE item_type=?;", (type_chosen,))
-    content = cur.execute("SELECT item_content FROM items WHERE item_type=?;", (type_chosen,))
+    title = cur.execute("SELECT item_name FROM items WHERE item_type=?;", (type_chosen,)).fetchall()
+    content = cur.execute("SELECT item_content FROM items WHERE item_type=?;", (type_chosen,)).fetchall()
     return render_template("content.html", type=type_chosen, title=title, content=content)
 
 if __name__ == "__main__":
