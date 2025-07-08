@@ -45,6 +45,7 @@ INSERT INTO items(item_name,item_type,item_content) VALUES (title,type,content);
 SELECT item_name,item_content FROM items WHERE item_type='{}';
 SELECT item_type FROM items;
 DELETE FROM item_content WHERE item_name='' AND item_type='';
+UPDATE items SET item_name = 'Vampire' WHERE item_id = 5;
 
 
 -- Race
