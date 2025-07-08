@@ -6,8 +6,6 @@
 
 .bodylogin {
     background-image: url("maelbackground.png");
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 
 .races_button {
@@ -24,8 +22,7 @@
 
 .bodycontentadd {
     background-image: url("content_add_hawk.png");
-    background-repeat: no-repeat;
-    background-size: cover;
+
     
 }
 
