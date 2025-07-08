@@ -2,7 +2,7 @@ CREATE TABLE users (
     user_id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_name TEXT NOT NULL,
     user_password TEXT NOT NULL,
-    mod TEXT NOT NULL
+    mod INTEGER NOT NULL
 );
 
 CREATE TABLE items (
@@ -37,9 +37,9 @@ CREATE TABLE item_comments (
 );
 
 -- help for frontend
-INSERT INTO users(user_name,user_password,mod) VALUES ('Dannyminer','Gribby','TRUE');
-INSERT INTO users(user_name,user_password,mod) VALUES ('SabaEnjoyer','a','TRUE');
-INSERT INTO users(user_name,user_password,mod) VALUES ('KaperDan','HWX','TRUE');
+INSERT INTO users(user_name,user_password,mod) VALUES ('Dannyminer','Gribby',1);
+INSERT INTO users(user_name,user_password,mod) VALUES ('SabaEnjoyer','a',1);
+INSERT INTO users(user_name,user_password,mod) VALUES ('KaperDan','HWX',1);
 INSERT INTO items(item_name,item_type,item_content) VALUES (title,type,content);
 SELECT item_name,item_content FROM items WHERE item_type='{}';
 SELECT item_type FROM items;
@@ -80,4 +80,4 @@ INSERT INTO items(item_name,item_type,item_content) VALUES ('Cooking','Subskills
 INSERT INTO items(item_name,item_type,item_content) VALUES ('Stealth','Subskills','A skill used to level up and progress the games story');
 INSERT INTO items(item_name,item_type,item_content) VALUES ('Lockpicking','Subskills','A skill used to level up and progress the games story');
 INSERT INTO items(item_name,item_type,item_content) VALUES ('Theft','Subskills','A skill used to level up and progress the games story');
-INSERT INTO items(item_name,item_type,item_content) VALUES ('Smithing','Subskills','A skill used to level up and progress the games story');
+INSERT INTO items(item_name,item_type,item_content) VALUES ('Smithing','Subskills','A skill used to level up and progress the games story');    
