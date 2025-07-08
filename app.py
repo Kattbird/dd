@@ -66,7 +66,7 @@ def signup():
         if users and len(users) > 0:
             username_found = True
         
-        if not username_found:
+        if not username_found and (username != None and password != None):
             cur.execute("INSERT INTO users (user_name, user_password, mod) VALUES (?, ?, ?);", (username, password,False))
             conn.commit()
 
