@@ -55,8 +55,8 @@ a:hover {
   
 @keyframes slidein {
     from {
-        color: rgb(0, 0, 0);
-        background-color: white;
+        color: inherit;
+        background-color: inherit;
     }
 
     to {

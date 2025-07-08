@@ -61,7 +61,6 @@ def signup():
         password = request.form.get("pass")
 
         users = cur.execute("SELECT user_name FROM users WHERE user_name = ?;", (username,)).fetchone()
-        print(users )
 
         username_found = False
         if users and len(users) > 0:
@@ -114,7 +113,6 @@ def content(type_chosen):
     cur = conn.cursor()
     title = cur.execute("SELECT item_name FROM items WHERE item_type=?;", (type_chosen,)).fetchall()
     content = cur.execute("SELECT item_content FROM items WHERE item_type=?;", (type_chosen,)).fetchall()
-    print(title, content, type_chosen)
     return render_template("content.html", type=type_chosen, title=title, content=content)
 
 
