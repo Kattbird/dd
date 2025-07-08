@@ -87,7 +87,7 @@ def logout():
         session.pop("logged_in")
     return redirect(url_for("main"))
 
-@app.route("/content_add")
+@app.route("/content_add", methods=["POST", "GET"])
 def content_add():
     conn = sqlite3.connect("database.db")
     cur = conn.cursor()
@@ -110,13 +110,22 @@ def content_add():
     
 
 @app.route("/types/<type_chosen>")
-def content(type_chosen):
+def content_add(type_chosen):
     conn = sqlite3.connect("database.db")
     cur = conn.cursor()
     title = cur.execute("SELECT item_name FROM items WHERE item_type=?;", (type_chosen,)).fetchall()
     content = cur.execute("SELECT item_content FROM items WHERE item_type=?;", (type_chosen,)).fetchall()
     print(title, content, type_chosen)
     return render_template("content.html", type=type_chosen, title=title, content=content)
+
+@app.route("/content_remove", methods=["POST", "GET"])
+def content_remove():
+    if request.method == "POST":
+        conn = sqlite3.connect("database.db")
+        cur = conn.cursor()
+    else:
+        return render_template("content_remove.html")
+
 
 if __name__ == "__main__":
     app.run()
