@@ -9,11 +9,13 @@
         <div class="bg-black/75 p-5 h-175 flex-initial size-250 border-1 border-white rounded-2xl">
             <div class="bg-white p-5 m-5 rounded-2xl border-1 border-black">
                 <div>
-                    {% for i in type%}
-                    <h1 class="text-center text-4x1 font-bold ">
-                        {{i}}
+                   
+                    <h1 class="text-center text-4x1 font-bold color-white ">
+                        {% for i in type%}
+                            {{i}}
+                        {% endfor %}
                     </h1>
-                    {% endfor %}
+                    
                 </div>
             </div>
         </div>
