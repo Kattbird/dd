@@ -30,7 +30,13 @@
 }
 
 .contentbackground {
-    background-image: url("content_background.png");
+    background-image: url("meliodasbackground.png");
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.backbuttonimage {
+    background-image: url("backbuttonimage.png");
+    background-repeat: no-repeat;
+    background-size:contain
 }
