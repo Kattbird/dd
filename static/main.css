@@ -46,3 +46,21 @@
     background-repeat: no-repeat;
     background-size: contain;
 }
+a:hover {
+    animation-duration: 250ms;
+    animation-name: slidein;
+    color:crimson;
+    background-color: rgb(236, 204, 204);
+}
+  
+@keyframes slidein {
+    from {
+        color: rgb(0, 0, 0);
+        background-color: white;
+    }
+
+    to {
+        color:crimson;
+        background-color: rgb(236, 204, 204);
+    }
+}
