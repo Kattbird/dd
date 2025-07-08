@@ -119,16 +119,16 @@ def content(type_chosen):
 
 @app.route("/content_remove", methods=["POST", "GET"])
 def content_remove():
+    conn = sqlite3.connect("database.db")
+    cur = conn.cursor()
     if request.method == "POST":
         mod = bool(cur.execute("SELECT mod FROM users WHERE user_name=?;", (session["username"],)).fetchone()[0])
         if mod:
-            conn = sqlite3.connect("database.db")
-            cur = conn.cursor()
             title = request.form.get("title")
             content_type = request.form.get("type")
             cur.execute("DELETE FROM item_content WHERE item_name=? and WHERE item_type=?;", (title, content_type))
             conn.commit()
-        return redirect(url_for("main"))
+        return render_template("content_remove.html")
     else:
         return render_template("content_remove.html")
 
